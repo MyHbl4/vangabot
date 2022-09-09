@@ -1,0 +1,11 @@
+server:
+  port: 9150
+
+telegram:
+  api-url: "https://api.telegram.org/"
+  webhook-path: "https://6b72-178-121-38-143.eu.ngrok.io"
+  bot-name: "VangaSuperBot"
+  bot-token: "5654028054:AAE5cyy5QcqXzhlh3_bspWhxk93oi3194mA"
+#  proxyType: "SOCKSS"
+#  proxyHost: "localhost"
+#  proxyPort: "9150"
