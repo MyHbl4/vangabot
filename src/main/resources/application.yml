@@ -1,6 +1,6 @@
 server:
   port: 9150
-
+localeTag: "ru-Ru"
 telegram:
   api-url: "https://api.telegram.org/"
   webhook-path: "https://6b72-178-121-38-143.eu.ngrok.io"
