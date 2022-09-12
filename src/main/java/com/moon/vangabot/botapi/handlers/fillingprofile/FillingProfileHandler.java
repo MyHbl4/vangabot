@@ -3,7 +3,10 @@ package com.moon.vangabot.botapi.handlers.fillingprofile;
 import com.moon.vangabot.botapi.BotState;
 import com.moon.vangabot.botapi.InputMessageHandler;
 import com.moon.vangabot.cache.UserDataCache;
+import com.moon.vangabot.model.UserProfileData;
+import com.moon.vangabot.service.PredictionService;
 import com.moon.vangabot.service.ReplyMessagesService;
+import com.moon.vangabot.utils.Emojis;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
@@ -19,11 +22,13 @@ public class FillingProfileHandler implements InputMessageHandler {
 
     private UserDataCache userDataCache;
     private ReplyMessagesService messagesService;
+    private PredictionService predictionService;
 
-    public FillingProfileHandler(UserDataCache userDataCache,
-        ReplyMessagesService messagesService) {
+    public FillingProfileHandler(UserDataCache userDataCache, ReplyMessagesService messagesService,
+        PredictionService predictionService) {
         this.userDataCache = userDataCache;
         this.messagesService = messagesService;
+        this.predictionService = predictionService;
     }
 
     @Override
@@ -94,7 +99,15 @@ public class FillingProfileHandler implements InputMessageHandler {
         if (botState.equals(BotState.PROFILE_FILLED)) {
             profileData.setSong(usersAnswer);
             userDataCache.setUsersCurrentBotState(userId, BotState.SHOW_MAIN_MENU);
-            replyToUser = messagesService.getReplyMessage(chatId, "reply.profileFilled");
+
+            String profileFilledMessage = messagesService.getReplyText("reply.profileFilled",
+                profileData.getName(), Emojis.SPARKLES);
+            String predictionMessage = predictionService.getPrediction();
+
+            replyToUser = new SendMessage(String.valueOf(chatId),
+                String.format("%s%n%n%s %s", profileFilledMessage, Emojis.SCROLL,
+                    predictionMessage));
+            replyToUser.setParseMode("HTML");
         }
 
         userDataCache.saveUserProfileData(userId, profileData);

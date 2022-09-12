@@ -5,6 +5,7 @@ import com.moon.vangabot.botapi.BotState;
 import com.moon.vangabot.botapi.InputMessageHandler;
 import com.moon.vangabot.service.MainMenuService;
 import com.moon.vangabot.service.ReplyMessagesService;
+import com.moon.vangabot.utils.Emojis;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -23,7 +24,7 @@ public class MainMenuHandler implements InputMessageHandler {
     @Override
     public SendMessage handle(Message message) {
         return mainMenuService.getMainMenuMessage(message.getChatId(),
-            messagesService.getReplyText("reply.showMainMenu"));
+            messagesService.getReplyText("reply.showMainMenu", Emojis.MAGE));
     }
 
     @Override

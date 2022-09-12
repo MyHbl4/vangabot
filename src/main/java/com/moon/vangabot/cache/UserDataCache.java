@@ -1,7 +1,7 @@
 package com.moon.vangabot.cache;
 
 import com.moon.vangabot.botapi.BotState;
-import com.moon.vangabot.botapi.handlers.fillingprofile.UserProfileData;
+import com.moon.vangabot.model.UserProfileData;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.stereotype.Component;

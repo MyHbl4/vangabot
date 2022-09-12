@@ -2,8 +2,8 @@ package com.moon.vangabot.botapi.handlers.menu;
 
 import com.moon.vangabot.botapi.BotState;
 import com.moon.vangabot.botapi.InputMessageHandler;
-import com.moon.vangabot.botapi.handlers.fillingprofile.UserProfileData;
 import com.moon.vangabot.cache.UserDataCache;
+import com.moon.vangabot.model.UserProfileData;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -23,11 +23,8 @@ public class ShowProfileHandler implements InputMessageHandler {
         final UserProfileData profileData = userDataCache.getUserProfileData(userId);
 
         userDataCache.setUsersCurrentBotState(userId, BotState.SHOW_MAIN_MENU);
-        return new SendMessage(String.valueOf(message.getChatId()), String.format(
-            "%s%n -------------------%nИмя: %s%nВозраст: %d%nПол: %s%nЛюбимая цифра: %d%n" +
-                "Цвет: %s%nФильм: %s%nПесня: %s%n", "Данные по вашей анкете", profileData.getName(),
-            profileData.getAge(), profileData.getGender(), profileData.getNumber(),
-            profileData.getColor(), profileData.getMovie(), profileData.getSong()));
+        return new SendMessage(String.valueOf(message.getChatId()),
+            String.format("%s%n-------------------%n%s", "Данные по вашей анкете:", profileData.toString()));
     }
 
     @Override

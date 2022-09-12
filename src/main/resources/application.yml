@@ -3,7 +3,7 @@ server:
 localeTag: "ru-Ru"
 telegram:
   api-url: "https://api.telegram.org/"
-  webhook-path: "https://6b72-178-121-38-143.eu.ngrok.io"
+  webhook-path: "https://c6b5-178-121-33-207.eu.ngrok.io"
   bot-name: "VangaSuperBot"
   bot-token: "5654028054:AAE5cyy5QcqXzhlh3_bspWhxk93oi3194mA"
 #  proxyType: "SOCKSS"

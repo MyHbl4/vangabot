@@ -1,7 +1,7 @@
 package com.moon.vangabot.cache;
 
 import com.moon.vangabot.botapi.BotState;
-import com.moon.vangabot.botapi.handlers.fillingprofile.UserProfileData;
+import com.moon.vangabot.model.UserProfileData;
 
 public interface DataCache {
 
