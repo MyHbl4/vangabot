@@ -15,6 +15,4 @@ telegram:
 spring:
   data:
     mongodb:
-      database: "vangabot"
-      port: 27017
-#      port: 50741
+      uri: "mongodb+srv://admin:qwer1234@cluster0.6ugbkde.mongodb.net/vangabot_mongoDB?retryWrites=true&w=majority"

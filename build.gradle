@@ -24,7 +24,6 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo:3.4.9'
     implementation 'org.telegram:telegrambots-spring-boot-starter:6.1.0'
     implementation 'com.vdurmont:emoji-java:5.1.1'
 
